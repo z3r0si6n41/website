@@ -1,0 +1,394 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Inconsolata', 'Monaco', monospace;
+	overflow: hidden;
+	margin: 0;
+	color: #a0a2ae;
+	background: #000;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Reset Search Input */
+
+.search__input {
+	border: 0;
+	background: transparent;
+	border-radius: 0;
+	-webkit-appearance: none;
+}
+
+.search__input:focus {
+	outline: none;
+}
+
+
+/* Links */
+
+a {
+	text-decoration: none;
+	color: #34fc47;
+	outline: none;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+/* Layout for search container */
+.search {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 3em;
+}
+span.green{
+	color: #34fc47;
+}
+
+.js .search {
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 90vh;
+}
+
+.btn--search-close {
+	font-size: 2em;
+	position: absolute;
+	top: 1.25em;
+	right: 1.25em;
+	display: none;
+}
+
+.js .btn--search-close {
+	display: block;
+}
+
+.terminal__line {
+	line-height: 1.25;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	white-space: nowrap;
+}
+
+.search__form::before {
+	content: '>';
+}
+
+.search__input {
+	font-family: inherit;
+	line-height: 1;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 0.05em 0;
+	color: #fff;
+}
+
+.search__form::before,
+.terminal__line,
+.search__input {
+	font-family: 'VT323', monospace;
+	font-size: 1.25em;
+}
+
+.search__input::-webkit-input-placeholder {
+	/* WebKit, Blink, Edge */
+	color: #4a319e;
+}
+
+.search__input::-moz-placeholder {
+	opacity: 1;
+	/* Mozilla Firefox 19+ */
+	color: #4a319e;
+}
+
+.search__input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #4a319e;
+}
+
+.search__input::-webkit-search-cancel-button,
+.search__input::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+.search__input::-ms-clear {
+	display: none;
+}
+
+/************************/
+/* Transitions 			*/
+/************************/
+
+.js .search {
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.js .search--open {
+	pointer-events: auto;
+	opacity: 1;
+}
+.js .search--open .terminal.binding .terminal__line{
+	width: 200ch;
+}
+.js .search--open .terminal__line:first-child {
+	width: 200ch;
+}
+.js .search--open .terminal__line:nth-child(odd),
+.js .search--open .terminal__line:nth-child(even) {
+	width: 200ch;
+}
+
+.js .search--open .terminal__line {
+	animation: typing 1s steps(30, end), scaleUp 0.1s forwards;
+}
+
+.js .search--open .terminal__line:first-child {
+	animation-timing-function: steps(15, end), ease;
+}
+
+.js .search--open .terminal__line:nth-child(2) {
+	animation-delay: 2s;
+	animation-duration: 1.35s, 0.1s;
+	animation-timing-function: steps(25, end), ease;
+}
+
+.js .search--open .terminal__line:nth-child(3),
+.js .search--open .terminal__line:nth-child(4),
+.js .search--open .terminal__line:nth-child(5),
+.js .search--open .terminal__line:nth-child(6),
+.js .search--open .terminal__line:nth-child(7) {
+	animation-duration: 1.4s, 0.1s;
+	animation-timing-function: steps(60, end), ease;
+}
+.js .search--open .terminal__line:nth-child(3) {
+	animation-delay: 2.4s;
+}
+.js .search--open .terminal__line:nth-child(4) {
+	animation-delay: 2.6s;
+}
+.js .search--open .terminal__line:nth-child(5) {
+	animation-delay: 2.8s;
+}
+.js .search--open .terminal__line:nth-child(6) {
+	animation-delay: 3s;
+}
+.js .search--open .terminal__line:nth-child(7) {
+	animation-delay: 3.2s;
+}
+
+.js .search--open .terminal__line:nth-child(8) {
+	animation-duration: 0.95s, 0.1s;
+	animation-timing-function: steps(21, end), ease;
+	animation-delay: 3.6s;
+}
+
+.js .search--open .terminal__line:nth-child(9) {
+	animation-duration: 0.5s, 0.1s;
+	animation-timing-function: steps(30, end), ease;
+	animation-delay: 4.8s;
+}
+
+.js .search--open .terminal__line:nth-child(10) {
+	animation-duration: 0.65s, 0.1s;
+	animation-timing-function: steps(6, end), ease;
+	animation-delay: 6.4s;
+}
+.js .search--open .terminal__line:nth-child(11) {
+	animation-duration: 0.65s, 0.1s;
+	animation-timing-function: steps(6, end), ease;
+	animation-delay: 6.6s;
+}
+.js .search--open .terminal__line:nth-child(12) {
+	animation-duration: 0.65s, 0.1s;
+	animation-timing-function: steps(6, end), ease;
+	animation-delay: 6.8s;
+}
+.js .search--open .terminal__line:nth-child(13) {
+	animation-duration: 0.65s, 0.1s;
+	animation-timing-function: steps(6, end), ease;
+	animation-delay: 7s;
+}
+.js .search--open .terminal__line:nth-child(14) {
+	animation-duration: 0.65s, 0.1s;
+	animation-timing-function: steps(39, end), ease;
+	animation-delay: 8.8s;
+}
+.js .search--open .terminal__line:nth-child(15) {
+	animation-duration: 0.65s, 0.1s;
+	animation-timing-function: steps(60, end), ease;
+	animation-delay: 10.4s;
+}
+.js .search--open .terminal__line:nth-child(16) {
+	animation-duration: 0.65s, 0.1s;
+	animation-timing-function: steps(72, end), ease;
+	animation-delay: 10.6s;
+}
+
+.connecting-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  margin: 0 auto;
+}
+
+canvas{
+  position: absolute;
+  z-index: 1
+}
+.page {
+    position: absolute;
+		top: 0;
+    bottom: 0;
+    left: 0;
+		right: 0;
+    background-color: #000;
+    z-index: 9999;
+		-webkit-animation: move 1s; /* Safari 4+ */
+	  	 -moz-animation: move 1s; /* Fx 5+ */
+	       -o-animation: move 1s; /* Opera 12+ */
+	  	 			animation: move 1s; /* IE 10+, Fx 29+ */
+}
+.page_container{
+	animation-delay: 1s;
+	-webkit-animation: show 1s; /* Safari 4+ */
+	-moz-animation: show 1s; /* Fx 5+ */
+	-o-animation: show 1s; /* Opera 12+ */
+	animation: show 1s; /* IE 10+, Fx 29+ */
+	height: 100%;
+}
+.close_page {
+    padding: 1px 10px 6px 10px;
+    position: absolute;
+    top: 70px;
+    right: 80px;
+    font-size: 30px;
+	color: #084700;
+    border: 1px solid #084700;
+	cursor: pointer;
+}
+
+@keyframes move {
+		0% {
+			right: 5000px;
+		}
+		30% {
+			right: 2000px;
+		}
+		100% {
+			right: 0;
+	}
+}
+@keyframes move {
+		0% {
+			opacity: 0;
+		}
+		30% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 1;
+	}
+}
+
+
+/* Type animation by Lea Verou http://lea.verou.me/2012/02/simpler-css-typing-animation-with-the-ch-unit/ */
+@keyframes typing {
+	from {
+		width: 0;
+	}
+}
+
+@keyframes scaleUp {
+	from {
+		height: 0;
+	} to {
+		height: 1.5em;
+	}
+}
+
+/* Close button */
+.btn--search-close {
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.search--open .btn--search-close {
+	opacity: 1;
+}
+
+/* Search form with input and description */
+
+.js .search__form {
+	opacity: 0;
+}
+
+.js .search--open .search__form {
+	opacity: 1;
+	transition: opacity 0.3s 3.35s;
+}
+
+@media screen and (max-width: 40em) {
+	.btn--search-close {
+		font-size: 1.25em;
+	}
+	.search {
+		padding: 0.5em;
+	}
+}
+@media screen and (max-width: 40em) {
+	.search-wrap {
+		font-size: 0.85em;
+		position: absolute;
+		top: 2.15em;
+		right: 2em;
+	}
+	.bottom-nav {
+		padding: 0.5em;
+	}
+	.codrops-demos {
+		text-align: center;
+	}
+	.codrops-demos a {
+		margin-bottom: 1em;
+	}
+	.codrops-demos span {
+		display: block;
+		margin: 0 auto 1em;
+		text-align: center;
+	}
+}
+
+.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.428571429;color:#090;background-color:#000;background-image:none;border:1px solid #084700;border-radius:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s}.form-control:focus{border-color:#0f0;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0, 255, 0, 0.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0, 255, 0, 0.6)}
+.form-control::-moz-placeholder{color:#060;opacity:1}
+.form-control:-ms-input-placeholder{color:#060}
+.form-control::-webkit-input-placeholder{color:#060}
+.form-control[disabled],.form-control[readonly],fieldset[disabled] .form-control{background-color:#030;opacity:1}
+textarea.form-control{height:auto}
+fieldset{padding:0;margin:0;border:0;min-width:0}
+fieldset{border:1px solid #084700;margin:0 2px;padding:.35em .625em .75em}
+legend{display:block;width:100%;padding:0;margin-bottom:20px;font-size:21px;line-height:inherit;color:#0c0;}
+label{display:inline-block;max-width:100%;margin-bottom:5px;font-weight:bold}
+.form-horizontal{margin-top:6rem;}
+.form-horizontal .control-label{color:#0f0;}

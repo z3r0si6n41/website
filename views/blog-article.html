@@ -1,0 +1,11 @@
+<div class="row g-5 bg-dark border rounded mt-3">
+    <div class="col-md-12">
+
+      	<article class="blog-post">
+        	<h2 class="blog-post-title">{{article.title}}</h2><h3 class="fst-italic">In <a href="{{site.blogURL}}/blog/category/{{article.category.slug}}/">{{article.category.name}}</a></h3>
+        	<p class="blog-post-meta">{{article.date}} by <a href="{{site.blogURL}}/blog/user/{{article.author.id}}/">{{article.author.name}}</a></p>
+
+        <p>{{article.text}}</p>
+      </article>
+	</div>
+</div>

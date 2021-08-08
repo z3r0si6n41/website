@@ -1,0 +1,27 @@
+<div class="row mb-2">
+	{{#if featured}}
+	<div class="p-4 p-md-5 mb-4 text-white border rounded bg-dark">
+		<div class="col-md-6 px-0">
+			<h1 class="display-4 fst-italic">{{featured.title}}</h1>
+			<p class="lead text-muted">{{featured.date}}</p>
+			<p class="lead my-3">{{featured.text}}</p>
+			<p class="lead mb-0"><a href="{{site.baseURL}}/blog/article/{{featured.slug}}/" class="fw-bold">Continue reading</a></p>
+		</div>
+	</div>
+	{{/if}}
+
+	{{#each articles}}
+	<div class="col-md-12">
+		<div class="row g-0 text-white border bg-dark rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+			<div class="col p-4 d-flex flex-column position-static">
+				<strong class="d-inline-block mb-2 text-primary"><a class="blog-micro-category" href="{{site.baseURL}}/blog/category/{{category.slug}}/">{{category.name}}</a></strong>
+				<h3 class="mb-0">{{title}}</h3>
+				<p>By <a href="{{site.baseURL}}/user/{{author.id}}/">{{author.name}}</a></p>
+				<div class="mb-1 text-muted">{{date}}</div>
+				<p class="card-text mb-auto">{{text}}</p>
+				<a href="{{site.baseURL}}/blog/article/{{slug}}/">Continue reading</a>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</div>
